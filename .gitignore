@@ -28,6 +28,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 .metadata
 bin/
 tmp/
+CI_Core/
 *.tmp
 *.bak
 *.swp
