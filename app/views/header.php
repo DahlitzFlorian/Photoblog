@@ -14,20 +14,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
     <div id="wrapper">
-        <header id="header">
-            <span class="avatar"><img src="<?php echo jpg_file_url('avatar'); ?>" alt="<?php echo $this->config->item('name'); ?>" /></span>
-            <h1>
-                Willkommen auf meinem Fotoblog!<br>
-                Hier werde ich regelmäßig neue Bilder hochladen. Enjoy!
-            </h1>
-            <ul class="icons">
-                <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="<?php echo base_url('contact'); ?>" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
-            </ul>
-        </header>
-        <nav id="head-nav">
+        <nav id="sidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Artikel</a>
@@ -42,3 +30,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a href="#">Kontakt</a></li>
             </ul>
         </nav>
+        <div id="main">
+            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+            <header id="header">
+                <span class="avatar"><img src="<?php echo jpg_file_url('avatar'); ?>" alt="<?php echo $this->config->item('name'); ?>" /></span>
+                <h1>
+                    Willkommen auf meinem Fotoblog!<br>
+                    Hier werde ich regelmäßig neue Bilder hochladen. Enjoy!
+                </h1>
+                <ul class="icons">
+                    <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="<?php echo base_url('contact'); ?>" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+                </ul>
+            </header>
