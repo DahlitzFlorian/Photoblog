@@ -8,6 +8,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Other Stylesheets -->
     <link rel="stylesheet" href="<?php echo css_file_url('main'); ?>" type="text/css">
+    
+    <!-- Own Stylesheets -->
+    <link rel="stylesheet" href="<?php echo css_file_url('extended'); ?>" type="text/css">
 </head>
 <body>
     <div id="wrapper">
