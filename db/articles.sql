@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 03. Jan 2017 um 19:17
+-- Erstellungszeit: 04. Jan 2017 um 19:48
 -- Server Version: 5.6.21
 -- PHP-Version: 5.6.3
 
@@ -32,15 +32,16 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `text` text NOT NULL,
   `author` varchar(100) NOT NULL DEFAULT 'Standard',
   `path` varchar(150) NOT NULL,
-  `date` date NOT NULL
+  `date` date NOT NULL,
+  `tags` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Daten für Tabelle `articles`
 --
 
-INSERT INTO `articles` (`id`, `title`, `text`, `author`, `path`, `date`) VALUES
-(1, 'Example1', 'Cool text and pics', 'Standard', '2017/test', '2017-01-03');
+INSERT INTO `articles` (`id`, `title`, `text`, `author`, `path`, `date`, `tags`) VALUES
+(1, 'Example1', 'Cool text and pics', 'Standard', '2017/test', '2017-01-03', '');
 
 --
 -- Indizes der exportierten Tabellen
