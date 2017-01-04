@@ -20,6 +20,7 @@ class Home extends MY_Controller
     {
         $this->data['latestArticles'] = $this->article->getLatestArticles();
 
-        $this->load->view('home', $this->data);
+        $this->data['subview'] = 'home';
+        $this->load->view('layout', $this->data);
     }
 }
