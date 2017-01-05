@@ -18,9 +18,14 @@ class Article extends MY_Controller
 
     public function show($path)
     {
-        $this->data['article'] = $this->article->get_by('path', $path);
+        $article = $this->article->get_by('path', $path);
+        $this->data['article'] = $article;
         
-        $this->data['subview'] = 'article';
+        if($article->type == 'slide')
+            $this->data['subview'] = 'article_slide';
+        else 
+            $this->data['subview'] = 'article_included'; // need also to replace paths w/ full paths
+        
         $this->load->view('layout', $this->data);
     }
 }
