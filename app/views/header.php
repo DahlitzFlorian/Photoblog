@@ -13,12 +13,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo css_file_url('extended'); ?>" type="text/css">
 </head>
 <body>
+    <div id="menu-point"><span onclick="openNav()">&#9776; Menu</span></div>
     <div id="wrapper">
         <nav id="sidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Artikel</a>
+                <li id="submenu1"><a href="#">Artikel</a>
                     <ul>
                         <li><a href="#">beliebteste Artikel</a></li>
                         <li><a href="#">letzte Artikel</a></li>
@@ -31,7 +32,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ul>
         </nav>
         <div id="main">
-            <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
             <header id="header">
                 <span class="avatar"><img src="<?php echo jpg_file_url('avatar'); ?>" alt="<?php echo $this->config->item('name'); ?>" /></span>
                 <h1>

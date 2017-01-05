@@ -20,6 +20,7 @@
     overflow-x: hidden; 
     padding-top: 60px; 
     transition: 0.5s; 
+    text-align: left;
 }
 
 .sidenav ul {
@@ -43,10 +44,6 @@
     display: none;
 }
 
-.sidenav ul li:hover ul {
-    display: block;
-}
-
 .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -55,13 +52,25 @@
     margin-left: 50px;
 }
 
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
-}
-
-
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
+}
+
+#wrapper {
+    text-align: center;
+    width: 1000px !important;
+}
+
+#menu-point {
+    text-align: left; 
+    font-size:30px;
+    cursor: pointer;
+    width: 1000px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+    text-align: left;
 }

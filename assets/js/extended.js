@@ -7,5 +7,12 @@ function openNav() {
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
 function closeNav() {
     document.getElementById("sidenav").style.width = "0";
-    document.getElementById("wrapper").style.marginLeft = "0";
+    document.getElementById("wrapper").style.marginLeft = "auto";
 }
+
+/* toggle submenu */
+$(document).ready(function() {
+    $("#submenu1").click(function(event){
+        $("#submenu1 ul").slideToggle('slow');
+    })
+})
