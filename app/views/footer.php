@@ -5,12 +5,11 @@
     </div>
     
      <!-- Other Scripts -->
-    <script src="<?php echo js_file_url('jquery.min'); ?>"></script>
     <script src="<?php echo js_file_url('jquery.poptrox.min'); ?>"></script>
     <script src="<?php echo js_file_url('skel.min'); ?>"></script>
     <script src="<?php echo js_file_url('main'); ?>"></script>
     
     <!-- Own Scripts -->
-    <script src="<?php echo js_file_url('extended'); ?>"></script>    
+    <script src="<?php echo js_file_url('extended'); ?>"></script> 
 </body>
 </html>
