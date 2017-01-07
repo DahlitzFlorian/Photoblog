@@ -12,7 +12,7 @@
                     <?php endfor; ?>
                 </div>
             <?php endif; ?>
-            <p><span class="left">von <?php echo $article->author; ?></span><span class="right"><?php echo $article->date; ?></span></p>
+            <p><span class="left">von <?php echo $article->author; ?></span><span class="right"><?php echo date('d.m.Y', strtotime($article->date)); ?></span></p>
             <?php 
             echo form_open(base_url('article/show/' . $article->path), ['id' => 'comment-form']);
             echo '<h2>Artikel kommentieren</h2>';
