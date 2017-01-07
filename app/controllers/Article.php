@@ -14,6 +14,7 @@ class Article extends MY_Controller
         parent::__construct();
         
         $this->load->model('Article_model', 'article');
+        $this->load->helper('form');
     }
     
     private function countImages($path)
@@ -25,6 +26,9 @@ class Article extends MY_Controller
         
         if($files !== false)
             $counter = count($files);
+        
+        $counter -= 1; // w/out thumbnail
+        $counter /= 2; // consider small and large type
         
         return $counter;
     }
