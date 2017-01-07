@@ -6,6 +6,18 @@
 */
 
 /*
+    general
+*/
+
+h1 {
+    font-size: 2.5em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+/*
     wrapper
 */
 
@@ -83,13 +95,21 @@
 }
 
 /*
+    mainmain
+*/
+
+#mainmain {
+    transition: margin-left .5s;
+    padding: 20px;
+    text-align: left;
+}
+
+/*
     main
 */
 
 #main {
-    transition: margin-left .5s;
-    padding: 20px;
-    text-align: left;
+    font-size: 1.5em;
 }
 
 /*
@@ -103,6 +123,10 @@
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
     user-select: none;
+}
+
+#header p {
+    font-size: 2em;
 }
 
 /*
@@ -121,6 +145,26 @@
     float: right;
     font-weight: bold;
     font-size: 1.2em;
+}
+
+/*
+    comment-form
+*/
+
+#comment-form {
+    margin-top: 4em;
+}
+
+#comment-form input {
+    margin-bottom: 1em;
+}
+
+#comment-form textarea {
+    margin-bottom: 1em;
+}
+
+#comment-form input[type=submit] {
+    margin-right: 2em;
 }
 
 /*

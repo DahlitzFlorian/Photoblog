@@ -34,10 +34,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div id="mainmain">
             <header id="header">
                 <span class="avatar"><img src="<?php echo jpg_file_url('avatar'); ?>" alt="<?php echo $this->config->item('name'); ?>" /></span>
-                <h1>
+                <p>
                     Willkommen auf meinem Fotoblog!<br>
                     Hier werde ich regelmäßig neue Bilder hochladen. Enjoy!
-                </h1>
+                </p>
                 <ul class="icons">
                     <li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
                     <li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
