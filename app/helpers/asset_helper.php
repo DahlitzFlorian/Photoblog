@@ -87,3 +87,12 @@ if (! function_exists('png_file_url'))
         return pics_url() . $filename . '.png';
     }
 }
+
+if (! function_exists('article_pics_url'))
+{
+    
+    function article_pics_url()
+    {
+        return pics_url() . 'art/';
+    }
+}

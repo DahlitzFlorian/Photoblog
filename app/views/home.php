@@ -7,16 +7,16 @@
                     if($article_place == 0)
                     {
                         echo '<div>';
-                        echo '<a href="' . pics_url($article->path . '/thumbnail_l.jpg') . '">';
-                        echo '<img src="" alt="" />';
+                        echo '<a href="' . base_url('article/show/') . $article->path . '">';
+                        echo '<img src="' . article_pics_url() . $article->path . '/thumbnail_s.jpg' . '" alt="" />';
                         echo '<h3>' . $article->title . '</h3>';
                         echo '</a>';
                         $article_place = 1;
                     }
                     else
                     {
-                        echo '<a href="' . pics_url($article->path . '/thumbnail_l.jpg') . '">';
-                        echo '<img src="" alt="" />';
+                        echo '<a href="' . base_url('article/show/') . $article->path . '">';
+                        echo '<img src="' . article_pics_url() . $article->path . '/thumbnail_s.jpg' . '" alt="" />';
                         echo '<h3>' . $article->title . '</h3>';
                         echo '</a>';
                         echo '</div>';
