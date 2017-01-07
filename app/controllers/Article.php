@@ -40,8 +40,8 @@ class Article extends MY_Controller
         
         if($article->type == 'slide')
         {
-            $this->load->helper('slider');
-            $this->data['imgCount'] = 7; //$this->countImages('assets/pics/art/2017/test' . $article->path);
+            $this->data['fancy'] = true;
+            $this->data['imgCount'] = 6; //$this->countImages('assets/pics/art/2017/test' . $article->path);
             $this->data['imgPath'] = base_url('', NULL, FALSE) . 'assets/pics/art/' . $article->path;
             $this->data['subview'] = 'article_slide';
         }

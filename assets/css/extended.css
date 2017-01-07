@@ -93,9 +93,22 @@
     user-select: none;
 }
 
-footer {
+#footer {
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
     user-select: none;
+}
+
+/*
+    image-slider
+*/
+
+#images_mini {
+    margin-top: 1em;
+    margin:bottom: 1em;
+}
+
+#images_mini a {
+    border-bottom: none;
 }
