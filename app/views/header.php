@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a href="#">Kontakt</a></li>
             </ul>
         </nav>
-        <div id="main">
+        <div id="mainmain">
             <header id="header">
                 <span class="avatar"><img src="<?php echo jpg_file_url('avatar'); ?>" alt="<?php echo $this->config->item('name'); ?>" /></span>
                 <h1>
