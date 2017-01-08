@@ -29,16 +29,16 @@
             echo '<h3>Artikel kommentieren</h3>';
             echo form_input([
                 'name' => 'name',
-                'placeholder' => 'Name'
+                'placeholder' => 'Name *'
             ]);
             echo form_input([
                 'name' => 'email',
-                'placeholder' => 'Email',
+                'placeholder' => 'Email (optional)',
                 'type' => 'email'
             ]);            
             echo form_textarea([
                 'name' => 'text',
-                'placeholder' => 'Kommentar verfassen ...'
+                'placeholder' => 'Kommentar verfassen ... *'
             ]);
             echo form_submit([
                 'name' => 'comment_submit',
