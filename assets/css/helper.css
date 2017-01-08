@@ -5,4 +5,10 @@
     includes helper classes for article editors
 */
 
+/*
+    img-position
+*/
 
+.img-center {
+    text-align: center;
+}
