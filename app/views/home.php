@@ -9,7 +9,7 @@
                         echo '<div>';
                         echo '<a href="' . base_url('article/show/') . $article->path . '">';
                         echo '<img src="' . article_pics_url() . $article->path . '/thumbnail_s.jpg' . '" alt="" />';
-                        echo '<h3>' . $article->title . '</h3>';
+                        echo '<h4>' . $article->title . '</h4>';
                         echo '</a>';
                         $article_place = 1;
                     }
@@ -17,7 +17,7 @@
                     {
                         echo '<a href="' . base_url('article/show/') . $article->path . '">';
                         echo '<img src="' . article_pics_url() . $article->path . '/thumbnail_s.jpg' . '" alt="" />';
-                        echo '<h3>' . $article->title . '</h3>';
+                        echo '<h4>' . $article->title . '</h4>';
                         echo '</a>';
                         echo '</div>';
                         $article_place = 0;

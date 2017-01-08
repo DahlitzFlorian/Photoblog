@@ -22,6 +22,11 @@ h3 {
     margin-bottom: 0.5em;
 }
 
+h4 {
+    font-size: 1em;
+    margin: 5px 0 5px 0;
+}
+
 /*
     wrapper
 */
