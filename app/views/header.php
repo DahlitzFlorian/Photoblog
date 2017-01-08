@@ -11,6 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <!-- Own Stylesheets -->
     <link rel="stylesheet" href="<?php echo css_file_url('extended'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo css_file_url('helper'); ?>" type="text/css">
 </head>
 <body>
     <div id="menu-point"><span onclick="openNav()">&#9776; Menu</span></div>
