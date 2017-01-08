@@ -76,11 +76,20 @@ class Article extends MY_Controller
             $this->data['fancy'] = true;
             $this->data['imgCount'] = $this->countImages('assets/pics/art/' . $article->path);
             $this->data['imgPath'] = base_url('', NULL, FALSE) . 'assets/pics/art/' . $article->path;
-            $this->data['subview'] = 'article_slide';
+            $this->data['subview'] = 'article/article_slide';
         }
         else
-            $this->data['subview'] = 'article_include'; // need also to replace paths w/ full paths
+            $this->data['subview'] = 'article/article_include'; // need also to replace paths w/ full paths
 
+        $this->load->view('layout', $this->data);
+    }
+    
+    public function latest()
+    {
+        $this->data['articles'] = $this->article->getLatestArticles(10);
+        $this->data['header'] = 'Letzten 10 Artikel';
+        
+        $this->data['subview'] = 'article/article_list';
         $this->load->view('layout', $this->data);
     }
 }
