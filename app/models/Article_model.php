@@ -14,6 +14,22 @@ class Article_model extends MY_Model
      */
     protected $table = 'articles';
     
+    /**
+     * validation rules
+     */
+    protected $validation_rules = [
+        [
+            'field' => 'name',
+            'label' => 'Name',
+            'rules' => 'required|min_length[4]'
+        ],
+        [
+            'field' => 'text',
+            'label' => 'Kommentartext',
+            'rules' => 'required|min_length[10]'
+        ]
+    ];
+    
     public function __construct()
     {
         parent::__construct();

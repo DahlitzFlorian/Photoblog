@@ -34,13 +34,38 @@ class Article extends MY_Controller
     }
 
     public function show()
-    {
+    {        
         $url = "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         $url = explode("/", $url, 4);
         $path = $url[3];
         
         $article = $this->article->get_by('path', $path);
         $this->data['article'] = $article;
+        
+        if($this->input->post('comment_submit'))
+        {
+            $this->load->library('form_validation');
+            $this->article->set_validation_rules();
+        
+            if($this->form_validation->run())
+            {
+                if($this->input->post('email') != NULL)
+                    $data = [
+                        'article_id' => $article->id,
+                        'name' => $this->input->post('name'),
+                        'text' => $this->input->post('text'),
+                        'email' => $this->input->post('email')
+                    ];
+                else 
+                    $data = [
+                        'article_id' => $article->id,
+                        'name' => $this->input->post('name'),
+                        'text' => $this->input->post('text')
+                    ];
+                
+                $this->article->add_ext('comments', $data);
+            }
+        }
         
         if($article->type == 'slide')
         {
