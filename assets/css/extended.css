@@ -194,6 +194,25 @@ h3 {
     margin-right: 2em;
 }
 
+input[type='text']:focus, 
+textarea:focus, 
+input[type='email']:focus {
+    border-color: #31B404;
+    box-shadow: 0 0 0 1px #31B404;
+}
+
+input[type='reset'],
+input[type='submit'],
+input[type='button'] {
+    background-color: #04B404;
+}
+
+input[type='reset']:hover,
+input[type='submit']:hover,
+input[type='button']:hover {
+    background-color: #31B404;
+}
+
 /*
     footer
 */
