@@ -13,7 +13,7 @@
     <!-- Own Scripts -->
     <script src="<?php echo js_file_url('extended'); ?>"></script> 
     
-    <?php if($fancy == true): ?>
+    <?php if(isset($fancy)): ?>
     <!-- Add fancyBox -->
     <link rel="stylesheet" href="<?php echo css_file_url('jquery.fancybox'); ?>" type="text/css" media="screen" />
     <script type="text/javascript" src="<?php echo js_file_url('jquery.fancybox.pack'); ?>"></script>
