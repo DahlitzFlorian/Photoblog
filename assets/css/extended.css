@@ -17,6 +17,11 @@ h2 {
     font-size: 2em;
 }
 
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
 /*
     wrapper
 */
@@ -148,6 +153,27 @@ h2 {
 }
 
 /*
+    comments
+*/
+
+#comments {
+    width: 100%;
+    margin: 4em 0 2em;
+}
+
+.comment {
+    width: 100%;
+    border: 1px solid white;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.comment p {
+    margin: 0;
+    font-weight: bold;
+}
+
+/*
     comment-form
 */
 
@@ -161,6 +187,7 @@ h2 {
 
 #comment-form textarea {
     margin-bottom: 1em;
+    height: 200px;
 }
 
 #comment-form input[type=submit] {

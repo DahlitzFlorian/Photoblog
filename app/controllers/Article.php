@@ -67,6 +67,8 @@ class Article extends MY_Controller
             }
         }
         
+        $this->data['comments'] = $this->article->getComments($article->id);
+        
         if($article->type == 'slide')
         {
             $this->data['fancy'] = true;
