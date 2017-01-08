@@ -7,8 +7,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * includes basic settings
  */
-$config['title'] = "Titel";
+$config['title'] = "Venture Dahlitz | Fotoblog";
 $config['charset'] = "UTF-8";
 
 $config['name'] = "Christoph Dahlitz";
- 
+ $config['current_year'] = date("Y");
