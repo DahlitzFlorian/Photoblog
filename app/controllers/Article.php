@@ -92,4 +92,13 @@ class Article extends MY_Controller
         $this->data['subview'] = 'article/article_list';
         $this->load->view('layout', $this->data);
     }
+    
+    public function all()
+    {        
+        $this->data['articles'] = $this->article->getAll(['date', 'DESC']);
+        $this->data['header'] = 'Alle Artikel';
+        
+        $this->data['subview'] = 'article/article_list';
+        $this->load->view('layout', $this->data);
+    }
 }

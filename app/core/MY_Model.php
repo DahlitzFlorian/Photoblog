@@ -56,6 +56,11 @@ class MY_Model extends CI_Model
     /**
      * counting data
      */
+    public function count($obj)
+    {
+        return count((array)$obj);
+    }
+    
     public function count_by($key, $value)
     {
         $this->db->get_where($this->table, [$key => $value])->result();
