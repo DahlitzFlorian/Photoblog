@@ -35,12 +35,45 @@ class Article_model extends MY_Model
         parent::__construct();
     }
     
+    public function getAll($order_type = FALSE) // $order_type if existing as array[key, type]
+    {
+        if($order_type)
+            $this->db->order_by($order_type[0], $order_type[1]);
+    
+        $queries =  $this->db->get($this->table)->result();
+        $result = [];      
+        $i = 0;
+        
+        foreach($queries as $query)
+        {
+            if($query->tags != 1)
+                $result[$i] = $query;
+            
+            $i++;
+        }
+        
+        return $result;
+    }
+    
     public function getLatestArticles($limit = 6)
     {
         $this->db->order_by('date', 'DESC');
         $this->db->order_by('id', 'DESC');
         
-        return $this->db->get($this->table, $limit)->result();
+        $queries = $this->db->get($this->table, $limit)->result();
+        
+        $result = [];
+        $i = 0;
+        
+        foreach($queries as $query)
+        {
+            if($query->tags != 1)
+                $result[$i] = $query;
+        
+            $i++;
+        }
+        
+        return $result;
     }
     
     public function getByCat($cat_id)
