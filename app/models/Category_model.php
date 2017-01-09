@@ -31,7 +31,7 @@ class Category_model extends MY_Model
     
         $queries = $this->db->get($this->table)->result();
         $result = [];
-        $I = 0;
+        $i = 0;
         
         foreach($queries as $query)
         {
@@ -40,6 +40,8 @@ class Category_model extends MY_Model
             
             $i++;
         }
+        
+        return $result;
     }
     
     public function getName($cat_id)
