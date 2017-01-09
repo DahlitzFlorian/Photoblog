@@ -29,6 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a href="<?php echo base_url('category'); ?>">Kategorien</a></li>
                 <li><a href="<?php echo base_url('article/show/aboutme'); ?>">About me</a></li>
                 <li><a href="<?php echo base_url('contact'); ?>">Kontakt</a></li>
+                <li><a href="<?php echo base_url('article/show/imprint'); ?>">Impressum</a></li>
             </ul>
         </nav>
         <div id="mainmain">
