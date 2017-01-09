@@ -5,7 +5,7 @@
                         <div class="thumbnail"><img src="<?php echo article_pics_url() . $article->path . '/thumbnail.jpg'; ?>"></img></div>
                         <h4><?php echo $article->title; ?></h4>
                         <?php 
-                            if (strlen($article->text) > 100): $article->text = substr($article->text, 0, 96) . ' ...';
+                            if (strlen($article->text) > 90): $article->text = substr($article->text, 0, 86) . ' ...';
                             endif;
                         ?>
                         <div><?php echo $article->text; ?></div>
