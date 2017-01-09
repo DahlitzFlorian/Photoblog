@@ -32,8 +32,11 @@ class MY_Model extends CI_Model
         return $this->db->get_where($this->table, array($key => $value))->row();
     }
     
-    public function getAll()
+    public function getAll($order_type = FALSE) // $order_type if existing as array[key, type]
     {
+        if($order_type)
+            $this->db->order_by($order_type[0], $order_type[1]);
+        
         return $this->db->get($this->table)->result();
     }
     
@@ -48,6 +51,14 @@ class MY_Model extends CI_Model
     public function add_ext($table, $data)
     {
         $this->db->insert($table, $data);
+    }
+    
+    /**
+     * counting data
+     */
+    public function count_by($key, $value)
+    {
+        return $this->db->count($this->table, [$key => $value]);
     }
     
     /**

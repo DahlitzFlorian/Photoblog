@@ -43,6 +43,11 @@ class Article_model extends MY_Model
         return $this->db->get($this->table, $limit)->result();
     }
     
+    public function getByCat($cat_id)
+    {
+        return $this->db->get_where($this->table, ['tags' => $cat_id])->result();
+    }
+    
     public function getComments($article_id)
     {
         return $this->db->get_where('comments', ['article_id' => $article_id])->result();
