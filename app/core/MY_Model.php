@@ -32,6 +32,11 @@ class MY_Model extends CI_Model
         return $this->db->get_where($this->table, array($key => $value))->row();
     }
     
+    public function getAll()
+    {
+        return $this->db->get($this->table)->result();
+    }
+    
     /**
      * insert data
      */    
