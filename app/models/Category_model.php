@@ -24,6 +24,24 @@ class Category_model extends MY_Model
         parent::__construct();
     }
     
+    public function getAll($order_type = FALSE) // $order_type if existing as array[key, type]
+    {
+        if($order_type)
+            $this->db->order_by($order_type[0], $order_type[1]);
+    
+        $queries = $this->db->get($this->table)->result();
+        $result = [];
+        $I = 0;
+        
+        foreach($queries as $query)
+        {
+            if($query->id != 1)
+                $result[$i] = $query;
+            
+            $i++;
+        }
+    }
+    
     public function getName($cat_id)
     {
         return $this->db->get_where($this->table, ['id' => $cat_id])->row()->name;
