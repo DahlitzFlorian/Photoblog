@@ -16,6 +16,11 @@ class Contact extends MY_Controller
     
     public function index()
     {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        
+        $this->data['emails'] = $this->config->item('emails');
+        
         $this->data['subview'] = 'contact';
         $this->load->view('layout', $this->data);
     }
