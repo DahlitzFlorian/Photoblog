@@ -10,6 +10,10 @@
                     'placeholder' => 'Vor- und Nachname *'
                 ]);
                 echo form_input([
+                    'name' => 'subject',
+                    'placeholder' => 'Betreff'
+                ]);
+                echo form_input([
                     'name' => 'customer_email',
                     'type' => 'email',
                     'placeholder' => 'Email *'

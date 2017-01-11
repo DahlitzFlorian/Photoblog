@@ -29,6 +29,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 bin/
 tmp/
 CI_Core/
+app/config/secure.php
 *.tmp
 *.bak
 *.swp
