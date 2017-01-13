@@ -1,5 +1,7 @@
         <section id="main">
             <h2>Kontakt</h2>
+            <!-- include Google reCAPTCHA -->
+            <script src='https://www.google.com/recaptcha/api.js'></script>
             <article>
                 <?php 
                 echo form_open(base_url('contact/send'));
@@ -22,6 +24,7 @@
                     'name' => 'text',
                     'placeholder' => 'Hier bitte Text eingeben ... *'
                 ]);
+                echo '<div class="g-recaptcha" data-sitekey="6LeZwBEUAAAAABUYwQK8T_jkN6s5M-c8Cp6ovdN_"></div>';
                 echo form_submit([
                     'name' => 'contact_submit',
                     'value' => 'Senden'

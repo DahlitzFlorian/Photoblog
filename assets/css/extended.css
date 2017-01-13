@@ -302,3 +302,11 @@ form select {
 #imgContainer {
     padding: 1em;
 }
+
+/*
+    reCAPTCHA
+*/
+
+.g-recaptcha {
+    margin: 1em 0 1em 0;
+}

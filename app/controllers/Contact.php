@@ -43,8 +43,21 @@ class Contact extends MY_Controller
             ]);
             
             if($this->form_validation->run())
-                // captcha einfügen
-                $this->send();
+            {
+                $this->config->load('secure');
+                $recaptcha = new \ReCaptcha\ReCaptcha($this->config->item('recaptcha_secret_key'));
+                $resp = $recaptcha->verify($this->input->post('g-recaptcha-response'), $this->input->server('remote_addr'));
+                if ($resp->isSuccess()) {
+                    if ($this->send()) {
+                        $this->session->set_flashdata('email_send', true);
+                        redirect(base_url('contact/thanks'));
+                    } else {
+                        redirect(base_url());
+                    }
+                } else {
+                    $msg ='<p>Bitte verifizieren Sie sich [reCaptcha]</p>';
+                }
+            }
         }
         
         $this->load->helper('form');
@@ -73,5 +86,14 @@ class Contact extends MY_Controller
         $this->email->message("INFO: Diese E-Mail wurde automatisch von der Homepage [fotoblog.venturedahlitz.com] erstellt [Kontaktformular]\r\n\r\n" . $name . " schrieb am " . date("d.m.Y") . ":\r\n\r\n" . $this->input->post('message') . "\r\n\r\nE-Mail Adresse des Absenders: " . $from . "\r\n\r\nBitte antworten Sie nicht auf diese E-Mail.");
         
         return $this->email->send();
+    }
+    
+    public function thanks()
+    {
+        if(!$this->session->flashdata('email_send'))
+            redirect(base_url());
+        
+        $this->data['subview'] = 'thanks';
+        $this->load->view('layout', $this->data);
     }
 }
