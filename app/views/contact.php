@@ -4,9 +4,9 @@
             <script src='https://www.google.com/recaptcha/api.js'></script>
             <article>
                 <?php 
-                echo form_open(base_url('contact/send'));
+                echo form_open(base_url('contact'));
                 
-                echo form_dropdown('to_email', ['Christoph Dahlitz', 'Webmaster'], 'Christoph Dahlitz');
+                echo form_dropdown('to_email', ['Christoph Dahlitz' => 'Christoph Dahlitz', 'Webmaster' => 'Webmaster'], 'Christoph Dahlitz');
                 echo form_input([
                     'name' => 'name',
                     'placeholder' => 'Vor- und Nachname *'

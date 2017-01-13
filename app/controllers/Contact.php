@@ -44,6 +44,7 @@ class Contact extends MY_Controller
             
             if($this->form_validation->run())
             {
+                $this->load->library('ReCaptcha_wrapper');                
                 $this->config->load('secure');
                 $recaptcha = new \ReCaptcha\ReCaptcha($this->config->item('recaptcha_secret_key'));
                 $resp = $recaptcha->verify($this->input->post('g-recaptcha-response'), $this->input->server('remote_addr'));
@@ -76,7 +77,7 @@ class Contact extends MY_Controller
         
         $from = $this->input->post('customer_email');
         $to = $this->input->post('to_email');
-        $to = (array_key_exists($to, $this->config->item('emails'))) ? $this->emails[$to] : $this->config->item('emails')['Webmaster'];
+        $to = (array_key_exists($to, $this->config->item('emails'))) ? $this->config->item('emails')[$to] : $this->config->item('emails')['Webmaster'];
         $name = ($this->input->post('name')) ? $this->input->post('name') : $from;
         
         $this->email->from($from, $name);
