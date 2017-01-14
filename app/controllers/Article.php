@@ -51,19 +51,30 @@ class Article extends MY_Controller
 
             if($this->form_validation->run())
             {
-                if($this->input->post('email') != NULL)
-                    $data = [
-                        'article_id' => $article->id,
-                        'name' => $this->input->post('name'),
-                        'text' => $this->input->post('text'),
-                        'email' => $this->input->post('email')
-                    ];
-                else
-                    $data = [
-                        'article_id' => $article->id,
-                        'name' => $this->input->post('name'),
-                        'text' => $this->input->post('text')
-                    ];
+                $this->load->library('ReCaptcha_wrapper');
+                $this->config->load('secure');
+                $recaptcha = new \ReCaptcha\ReCaptcha($this->config->item('recaptcha_secret_key'));
+                $resp = $recaptcha->verify($this->input->post('g-recaptcha-response'), $this->input->server('remote_addr'));
+                if ($resp->isSuccess())
+                {
+                    if($this->input->post('email') != NULL)
+                        $data = [
+                            'article_id' => $article->id,
+                            'name' => $this->input->post('name'),
+                            'text' => $this->input->post('text'),
+                            'email' => $this->input->post('email'),
+                            'date' => date("Y-m-d H:i:s")
+                        ];
+                    else
+                        $data = [
+                            'article_id' => $article->id,
+                            'name' => $this->input->post('name'),
+                            'text' => $this->input->post('text'),
+                            'date' => date("Y-m-d H:i:s")
+                        ];
+                }
+                else 
+                    redirect(base_url());
 
                 $this->article->add_ext('comments', $data);
             }
