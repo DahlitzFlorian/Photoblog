@@ -84,7 +84,7 @@ class Contact extends MY_Controller
         $this->email->to($to);
         
         $this->email->subject($this->input->post('subject'));
-        $this->email->message("INFO: Diese E-Mail wurde automatisch von der Homepage [fotoblog.venturedahlitz.com] erstellt [Kontaktformular]\r\n\r\n" . $name . " schrieb am " . date("d.m.Y") . ":\r\n\r\n" . $this->input->post('message') . "\r\n\r\nE-Mail Adresse des Absenders: " . $from . "\r\n\r\nBitte antworten Sie nicht auf diese E-Mail.");
+        $this->email->message("INFO: Diese E-Mail wurde automatisch von der Homepage [fotoblog.venturedahlitz.com] erstellt [Kontaktformular]\r\n\r\n" . $name . " schrieb am " . date("d.m.Y") . ":\r\n\r\n" . $this->input->post('text') . "\r\n\r\nE-Mail Adresse des Absenders: " . $from . "\r\n\r\nBitte antworten Sie nicht auf diese E-Mail.");
         
         return $this->email->send();
     }
