@@ -21,12 +21,29 @@ class Article_model extends MY_Model
         [
             'field' => 'name',
             'label' => 'Name',
-            'rules' => 'required|min_length[4]'
+            'rules' => 'required|min_length[4]',
+            'errors' => [
+                'required' => 'Bitte geben Sie Ihren Namen ein',
+                'min_length' => 'Der Name muss mindestens 4 Zeichen umfassen (Vor- und Nachname)'
+            ]
+        ],
+        [
+            'field' => 'email',
+            'Label' => 'Email',
+            'rules' => 'valid_email',
+            'errors' => [
+                'valid_email' => 'Es muss eine valide (echte) Email-Adresse sein'
+            ]
         ],
         [
             'field' => 'text',
             'label' => 'Kommentartext',
-            'rules' => 'required|min_length[10]'
+            'rules' => 'required|min_length[10]',
+            'errors' => [
+                'required' => 'Bitte geben Sie einen %s ein',
+                'min_length' => 'Der %s muss mindestens 10 Zeichen umfassen'
+            ]
+            
         ]
     ];
     

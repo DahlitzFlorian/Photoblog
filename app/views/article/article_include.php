@@ -5,6 +5,15 @@
             <article><?php echo nl2br($article->text); ?></article>
             <p><span class="left">Erstellt von <?php echo $article->author; ?></span><span class="right"><?php echo date('d.m.Y', strtotime($article->date)); ?></span></p>
             <?php if($article->tags != 1): ?>
+                <?php if(isset($validation_errors) or isset($msg)): ?>
+                    <div class="requirements">
+                        <?php if(isset($validation_errors)): ?>
+                            <?php echo $validation_errors; ?>
+                        <?php else: ?>
+                            <?php echo $msg; ?>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
                 <?php if($comments != null): ?>    
                     <div id="comments">
                         <h3><?php echo count($comments); ?> Kommentar(e)</h3>

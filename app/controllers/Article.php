@@ -76,10 +76,12 @@ class Article extends MY_Controller
                         ];
                 }
                 else 
-                    redirect(base_url());
+                    $this->data['msg'] ='<p>Bitte verifizieren Sie sich [reCaptcha]</p>';
 
                 $this->article->add_ext('comments', $data);
             }
+            else 
+                $this->data['validation_errors'] = str_replace('</p>', '<br>', str_replace('<p>', '', validation_errors()));
         }
 
         $this->data['comments'] = $this->article->getComments($article->id);
