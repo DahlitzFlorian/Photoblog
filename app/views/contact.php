@@ -2,6 +2,15 @@
             <h2>Kontakt</h2>
             <!-- include Google reCAPTCHA -->
             <script src='https://www.google.com/recaptcha/api.js'></script>
+            <?php if(isset($validation_errors) or isset($msg)): ?>
+                <div class="requirements">
+                    <?php if(isset($validation_errors)): ?>
+                        <?php echo $validation_errors; ?>
+                    <?php else: ?>
+                        <?php echo $msg; ?>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
             <article>
                 <?php 
                 echo form_open(base_url('contact'));

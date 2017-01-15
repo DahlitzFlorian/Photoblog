@@ -25,22 +25,38 @@ class Contact extends MY_Controller
                 [
                     'field' => 'name',
                     'label' => 'Name',
-                    'rules' => 'required|min_length[8]'
+                    'rules' => 'required|min_length[8]',
+                    'errors' => [
+                        'required' => 'Es muss ein %s eingegeben werden',
+                        'min_length' => 'Der %s muss mindestens 8 Zeichen umfassen (Vor- und Nachname)'
+                    ]
                 ],
                 [
                     'field' => 'subject',
                     'label' => 'Betreff',
-                    'rules' => 'required|min_length[4]'
+                    'rules' => 'required|min_length[4]',
+                    'errors' => [
+                        'required' => 'Es muss ein %s eingegeben werden',
+                        'min_length' => 'Der %s muss mindestens 4 Zeichen umfassen'
+                    ]
                 ],
                 [
                     'field' => 'customer_email',
                     'label' => 'Email',
-                    'rules' => 'required|valid_email'
+                    'rules' => 'required|valid_email',
+                    'errors' => [
+                        'required' => 'Es muss eine valide (echte) %s eingegeben werden',
+                        'valid_email' => 'Bitte geben Sie eine valide Email-Adresse ein'
+                    ]
                 ],
                 [
                     'field' => 'text',
                     'label' => 'Text',
-                    'rules' => 'required|min_length[10]'
+                    'rules' => 'required|min_length[10]',
+                    'errors' => [
+                        'required' => 'Bitte geben Sie eine Nachricht ein',
+                        'min_length' => 'Die Nachricht muss mindestens 10 Zeichen umfassen'
+                    ]
                 ]
             ]);
             
@@ -55,12 +71,15 @@ class Contact extends MY_Controller
                         $this->session->set_flashdata('email_send', true);
                         redirect(base_url('contact/thanks'));
                     } else {
-                        redirect(base_url());
+                        $this->data['msg'] = '<p>Die Nachricht konnte nicht gesendet werden. 
+                                Bitte versuchen Sie es zu einem späteren Zeitpunkt erneut.</p>';
                     }
                 } else {
-                    $msg ='<p>Bitte verifizieren Sie sich [reCaptcha]</p>';
+                    $this->data['msg'] ='<p>Bitte verifizieren Sie sich [reCaptcha]</p>';
                 }
             }
+            else
+                $this->data['validation_errors'] = str_replace('</p>', '<br>', str_replace('<p>', '', validation_errors()));
         }
         
         $this->load->helper('form');
