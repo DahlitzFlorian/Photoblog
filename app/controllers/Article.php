@@ -44,6 +44,10 @@ class Article extends MY_Controller
         $path = $url[3];
 
         $article = $this->article->get_by('path', $path);
+        
+        if($article == NULL)
+            redirect(base_url('article/not_found'));
+        
         $this->data['article'] = $article;
 
         if($this->input->post('comment_submit'))
@@ -114,6 +118,12 @@ class Article extends MY_Controller
         $this->data['header'] = 'Alle Artikel';
         
         $this->data['subview'] = 'article/article_list';
+        $this->load->view('layout', $this->data);
+    }
+    
+    public function not_found()
+    {
+        $this->data['subview'] = 'not_found';
         $this->load->view('layout', $this->data);
     }
 }

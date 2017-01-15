@@ -46,6 +46,11 @@ class Category_model extends MY_Model
     
     public function getName($cat_id)
     {
-        return $this->db->get_where($this->table, ['id' => $cat_id])->row()->name;
+        $query = $this->db->get_where($this->table, ['id' => $cat_id])->row()->name;
+        
+        if($query == NULL)
+            return NULL;
+        else 
+            return $query;
     }
 } 

@@ -29,6 +29,10 @@ class Category extends MY_Controller
         $this->load->model('Article_model', 'article');
         
         $this->data['articles'] = $this->article->getByCat($cat_id);
+        
+        if($this->data['articles'] == NULL)
+            redirect(base_url('article/not_found'));
+        
         $this->data['header'] = 'Artikel zur Kategorie "' . $this->cat->getName($cat_id) . '"';
         
         $this->data['subview'] = 'article/article_list';
