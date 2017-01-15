@@ -37,6 +37,8 @@ class Article extends MY_Controller
 
     public function show()
     {
+        $this->load->library('session');
+        
         $url = "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         $url = explode("/", $url, 4);
         $path = $url[3];
