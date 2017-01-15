@@ -310,3 +310,12 @@ form select {
 .g-recaptcha {
     margin: 1em 0 1em 0;
 }
+
+/*
+    div: requirements
+*/
+
+.requirements {
+    padding: 5px;
+    box-shadow: 0 0 0 1px red;
+}
