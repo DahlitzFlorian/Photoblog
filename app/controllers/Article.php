@@ -89,6 +89,9 @@ class Article extends MY_Controller
         }
 
         $this->data['comments'] = $this->article->getComments($article->id);
+        
+        $this->load->model('Category_model', 'category');
+        $this->data['cat'] = $this->category->getName($article->tags);
 
         if($article->type == 'slide')
         {
