@@ -16,6 +16,7 @@
             <?php endif; ?>
             <p><?php if($article->tags != 1 AND $cat != NULL): ?>Kategorie: <?php echo anchor(base_url('category/show/' . $article->tags), $cat); ?><?php endif; ?></p>
             <p><span class="left">Erstellt von <?php echo $article->author; ?></span><span class="right"><?php echo date('d.m.Y', strtotime($article->date)); ?></span></p>
+            <p>Teilen: <a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-text="<?php echo $article->title; ?>" data-lang="en" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
             <?php if($article->tags != 1): ?>
                 <?php if($comments != null): ?>    
                     <div id="comments">
