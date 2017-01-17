@@ -319,3 +319,17 @@ form select {
     padding: 5px;
     box-shadow: 0 0 0 1px red;
 }
+
+/*
+    social-media sharing
+*/
+
+.twitter-container {
+    width: 100px;
+    margin: 12px 0 1em 0;
+    float: left;
+}
+
+.fb-share-button {
+    margin: 0 0 2em 0;
+}
