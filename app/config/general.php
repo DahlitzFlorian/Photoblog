@@ -17,3 +17,8 @@ $config['emails'] = [
     'Christoph Dahlitz' => 'dahlitz.christoph@venturedahlitz.com',
     'Webmaster' => 'webmaster@venturedahlitz.com'
 ];
+
+/**
+ * admin panel config stuff
+ */
+$config['admin_title'] = 'Venture Dahlitz | Fotoblog | Admin-Panel';

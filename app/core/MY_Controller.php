@@ -15,5 +15,17 @@ class MY_Controller extends CI_Controller
 
         // load general config
         $this->load->config('general');
+        
+        // Is admin panel
+        $this->data['admin_panel'] = ($this->uri->segment(1) == "admin");
+        
+        if ($this->data['admin_panel']) {
+            // Load admin panel related stuff
+            $this->data['title'] = $this->config->item('admin_title');
+        }
+        else {
+            // Load main panel related stuff
+            $this->data['title'] = $this->config->item('title');
+        }
     }
 }
