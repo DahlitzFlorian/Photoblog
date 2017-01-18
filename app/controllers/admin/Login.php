@@ -16,7 +16,6 @@ class Login extends MY_Controller
     
     public function index()
     {
-        $this->data['subview'] = 'admin/login';
-        $this->load->view('admin/layout', $this->data);
+        $this->load->view('admin/login', $this->data);
     }
 }
