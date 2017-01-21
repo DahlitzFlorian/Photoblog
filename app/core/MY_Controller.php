@@ -22,6 +22,7 @@ class MY_Controller extends CI_Controller
         if ($this->data['admin_panel']) {
             // Load admin panel related stuff
             $this->data['title'] = $this->config->item('admin_title');
+            $this->load->library('session');
         }
         else {
             // Load main panel related stuff
