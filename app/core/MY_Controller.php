@@ -15,6 +15,8 @@ class MY_Controller extends CI_Controller
 
         // load general config
         $this->load->config('general');
+        // Assign current user
+        $this->data['user'] = $this->ion_auth->user()->row();
         
         // Is admin panel
         $this->data['admin_panel'] = ($this->uri->segment(1) == "admin");
