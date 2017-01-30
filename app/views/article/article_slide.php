@@ -2,7 +2,7 @@
             <h2><?php echo $article->title; ?></h2>
             <!-- include Google reCAPTCHA -->
             <script src='https://www.google.com/recaptcha/api.js'></script>
-            <article><?php echo nl2br($article->text); ?></article>
+            <article><?php echo $article->text; ?></article>
             <?php if($imgCount > 0): ?>
                 <div id ="images_mini">
                     <?php for($i = 1; $i <= $imgCount; $i++): ?>
