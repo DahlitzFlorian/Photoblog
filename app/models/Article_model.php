@@ -77,17 +77,21 @@ class Article_model extends MY_Model
         $this->db->order_by('date', 'DESC');
         $this->db->order_by('id', 'DESC');
         
-        $queries = $this->db->get($this->table, $limit)->result();
+        $queries = $this->db->get($this->table, $limit + 5)->result();
         
         $result = [];
         $i = 0;
         
         foreach($queries as $query)
         {
-            if($query->tags != 1)
-                $result[$i] = $query;
-        
-            $i++;
+            if($i < $limit)
+            {
+                if($query->tags != 1)
+                {
+                    $result[$i] = $query;
+                    $i++;
+                }
+            }
         }
         
         return $result;
