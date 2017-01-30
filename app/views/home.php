@@ -13,6 +13,14 @@
                         echo '</a>';
                         $article_place = 1;
                     }
+                    else if($article_place == 1)
+                    {
+                        echo '<a href="' . base_url('article/show/') . $article->path . '">';
+                        echo '<img src="' . article_pics_url() . $article->path . '/thumbnail.jpg' . '" alt="" />';
+                        echo '<h4>' . $article->title . '</h4>';
+                        echo '</a>';
+                        $article_place = 2;
+                    }
                     else
                     {
                         echo '<a href="' . base_url('article/show/') . $article->path . '">';

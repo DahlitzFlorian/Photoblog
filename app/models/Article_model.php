@@ -72,7 +72,7 @@ class Article_model extends MY_Model
         return $result;
     }
     
-    public function getLatestArticles($limit = 6)
+    public function getLatestArticles($limit = 9)
     {
         $this->db->order_by('date', 'DESC');
         $this->db->order_by('id', 'DESC');
