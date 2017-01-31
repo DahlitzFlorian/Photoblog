@@ -13,12 +13,14 @@
     <!-- Own Stylesheets -->
     <link rel="stylesheet" href="<?php echo css_file_url('admin/main'); ?>" type="text/css"></link>
 </head>
-<body>
+<body id="login-body">
     <div id="wrapper">
-        <div class="left">
-            <h1>Administration</h1>
-            <h2>Venture Dahlitz | Fotoblog</h2>
-        </div>
+        <a id ="back-to-site" href="<?php echo base_url(); ?>">
+            <div class="left">
+                <h1>Administration</h1>
+                <h2>Venture Dahlitz | Fotoblog</h2>
+            </div>
+        </a>
         <div class="right">
             <form action="<?php echo base_url('admin/login'); ?>" name="login_form" method="post">
                 <div class="login-wrap">

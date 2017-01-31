@@ -58,6 +58,10 @@ p {
     Login
 */
 
+#back-to-site {
+    color: #F2F2F2;
+}
+
 .left {
     width: 38%;
     text-align: center;
