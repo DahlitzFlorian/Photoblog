@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * article management in admin panel
  */
-class Article extends MY_Controller
+class Page extends MY_Controller
 {
     public function __construct()
     {
@@ -19,12 +19,20 @@ class Article extends MY_Controller
     
     public function index()
     {
-        $this->data['subview'] = 'admin/article';
+        $this->data['subview'] = 'admin/page';
         $this->load->view('admin/layout', $this->data);
     }
     
     public function new_article()
-    {
+    {      
+        if($this->input->post('add_article_submit'))
+        {
+            $this->load->library('form_validation');
+        }
         
+        $this->load->helper('form');
+        
+        $this->data['subview'] = 'admin/page/new';
+        $this->load->view('admin/layout', $this->data);
     }
 }
