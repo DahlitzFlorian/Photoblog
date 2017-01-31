@@ -365,4 +365,38 @@ form input[type="submit"], input[type="reset"] {
     display: inline-block;
 }
 
+/*
+    Table
+*/
+
+table {
+    width: 100%;
+    font-size: 1.2em;
+}
+
+table thead {
+    width: 100%;
+}
+
+table thead tr th {
+    padding: 10px;
+    font-weight: bold;
+}
+
+table tbody {
+    width: 100%;
+}
+table tbody tr td {
+    padding: 10px;
+}
+
+table tbody tr td a {
+    text-decoration: none;
+    color: black;
+    display:block;
+}
+
+table tbody tr td a:hover {
+    background-color: white;
+}
 

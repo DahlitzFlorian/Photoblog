@@ -21,6 +21,8 @@ class Page extends MY_Controller
     
     public function index()
     {
+        $this->data['articles'] = $this->page->getAll(['date', 'DESC']);
+        
         $this->data['subview'] = 'admin/page';
         $this->load->view('admin/layout', $this->data);
     }
