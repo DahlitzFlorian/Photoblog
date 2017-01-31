@@ -4,6 +4,9 @@
     <meta charset="<?php echo $this->config->item('charset'); ?>">
     
     <title><?php echo $title; ?></title>
+    
+    <link rel="stylesheet" href="<?php echo css_file_url('admin/reset'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo css_file_url('admin/main'); ?>" type="text/css">
 </head>
 <body>
     <div id="wrapper">
