@@ -54,6 +54,15 @@ class MY_Model extends CI_Model
     }
     
     /**
+     * updating data
+     */
+    public function update($id, $data)
+    {
+        $this->db->where('id', $id);
+        return $this->db->update($this->table, $data);
+    }
+    
+    /**
      * counting data
      */
     public function count($obj)

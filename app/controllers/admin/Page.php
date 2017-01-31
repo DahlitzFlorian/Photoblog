@@ -67,4 +67,58 @@ class Page extends MY_Controller
         $this->data['subview'] = 'admin/page/new';
         $this->load->view('admin/layout', $this->data);
     }
+    
+    public function show($id)
+    {
+        $this->data['article'] = $this->page->get_by('id', $id);
+        
+        $this->load->model('Category_model', 'cat');
+        $this->data['category'] = $this->cat->getName($this->data['article']->tags);
+        
+        $this->data['subview'] = 'admin/page/view';
+        $this->load->view('admin/layout', $this->data);
+    }
+    
+    public function edit($id)
+    {
+        $article = $this->page->get_by('id', $id);
+        
+        if($this->input->post('edit_article_submit'))
+        {
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($this->page->set_validation_rules());
+        
+            if($this->form_validation->run())
+            {
+                $data = [
+                    'title' => $this->input->post('title'),
+                    'text' => $this->input->post('content'),
+                    'path' => $this->input->post('path'),
+                    'type' => $this->input->post('type'),
+                    'tags' => $this->input->post('category')
+                ];
+        
+                if($this->input->post('date') != NULL)
+                    $data['date'] = date('Y-m-d', strtotime($this->input->post('date')));
+                else
+                    $data['date'] = date('Y-m-d');
+        
+                if($this->page->update($article->id, $data))
+                    redirect(base_url('admin/page/show/' . $article->id));
+                else
+                    $this->data['msg'] ='<p>Der Artikel konnte aus unbekannten Gründen nicht aktualisiert werden.</p>';
+            }
+            else
+                $this->data['validation_errors'] = str_replace('</p>', '<br>', str_replace('<p>', '', validation_errors()));
+        }
+        
+        $this->load->helper('form');
+        $this->load->model('Category_model', 'cat');
+        
+        $this->data['article'] = $article;
+        $this->data['categories'] = $this->cat->getAllWith(['name', 'ASC']);
+        
+        $this->data['subview'] = 'admin/page/edit';
+        $this->load->view('admin/layout', $this->data);
+    }
 }
