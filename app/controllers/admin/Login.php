@@ -16,6 +16,9 @@ class Login extends MY_Controller
     
     public function index()
     {
+        if(true === $this->ion_auth->logged_in())
+            redirect(base_url('admin/dashboard'));
+        
         if($this->input->post('login_submit'))
         {
             $this->load->library('form_validation');
@@ -36,15 +39,35 @@ class Login extends MY_Controller
             
             if($this->form_validation->run())
             {
-                // set up session data
-                redirect(base_url('admin/dashboard'));
+                $identity = $this->input->post('username');
+                $password = $this->input->post('password');
+                $remember = (bool) $this->input->post('remember_me'); // remember the user
+                
+                if(true === $this->ion_auth->login($identity, $password, $remember))
+                {
+                    // create success msg
+                    redirect(base_url('admin/dashboard'));
+                }
+                else
+                {
+                    // create error msg
+                    redirect(base_url('admin/login'));
+                }
             }
             else
             {
                 // create error msg
+                redirect(base_url('admin/login'));
             }
         }
         
         $this->load->view('admin/login', $this->data);
+    }
+    
+    public function logout()
+    {
+        $this->ion_auth->logout();
+        // setup msg
+        redirect(base_url('admin/login'));
     }
 }
