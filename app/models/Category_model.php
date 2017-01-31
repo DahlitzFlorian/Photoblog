@@ -44,6 +44,25 @@ class Category_model extends MY_Model
         return $result;
     }
     
+    public function getAllWith($order_type = FALSE) // $order_type if existing as array[key, type]
+    {
+        if($order_type)
+            $this->db->order_by($order_type[0], $order_type[1]);
+    
+        $queries = $this->db->get($this->table)->result();
+        $result = [];
+        $i = 0;
+        
+        foreach($queries as $query)
+        {
+            $result[$query->id] = $query->name;
+            
+            $i++;
+        }
+        
+        return $result;
+    }
+    
     public function getName($cat_id)
     {
         $query = $this->db->get_where($this->table, ['id' => $cat_id])->row();
