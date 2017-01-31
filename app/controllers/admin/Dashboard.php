@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * handles dashboard
  */
-class Login extends MY_Controller
+class Dashboard extends MY_Controller
 {
     public function __construct()
     {
