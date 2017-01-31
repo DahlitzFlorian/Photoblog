@@ -36,6 +36,10 @@
                                     <input id="pass" name="password" type="password" class="input" data-type="password">
                                 </div>
                                 <div class="group">
+                                    <input name="remember_me" id="check" type="checkbox" class="check" checked>
+                                    <label for="check"><span class="icon"></span> Angemeldet bleiben</label>
+                                </div>
+                                <div class="group">
                                     <input name="login_submit" type="submit" class="button" value="Anmelden">
                                 </div>
                             </div>
