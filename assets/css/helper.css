@@ -12,3 +12,19 @@
 .img-center {
     text-align: center;
 }
+
+/*
+    background classes
+*/
+
+.bg-lightgreen {
+    background-color: #01DF01;
+}
+
+.bg-lightblue {
+    background-color: #2E9AFE;
+}
+
+.bg-red {
+    background-color: #FF0000;
+}
