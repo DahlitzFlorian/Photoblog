@@ -388,6 +388,13 @@ table thead tr th {
 table tbody {
     width: 100%;
 }
+
+table tbody tr:hover {
+    background-color: white;
+    cursor: pointer;
+    cursor: hand;
+}
+
 table tbody tr td {
     padding: 10px;
 }
@@ -396,9 +403,5 @@ table tbody tr td a {
     text-decoration: none;
     color: black;
     display:block;
-}
-
-table tbody tr td a:hover {
-    background-color: white;
 }
 

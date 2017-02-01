@@ -15,9 +15,9 @@
                     <?php 
                         foreach($articles as $article)
                         {
-                            echo '<tr>';
+                            echo '<tr class="clickable-row" data-href="' . base_url('admin/page/show/' . $article->id) . '">';
                             echo '<td>' . $article->id . '</td>';
-                            echo '<td><a href="' . base_url('admin/page/show/' . $article->id) . '">' . $article->title . '</a></td>';
+                            echo '<td>' . $article->title . '</td>';
                             echo '<td>' . $article->author . '</td>';
                             echo '<td>' . date('d.m.Y', strtotime($article->date)) . '</td>';
                             echo '</tr>';
