@@ -388,6 +388,10 @@ form input[type="submit"], input[type="reset"] {
     display: inline-block;
 }
 
+form input[type="checkbox"] {
+    width: 5%;
+}
+
 /*
     Table
 */
