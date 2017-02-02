@@ -21,7 +21,7 @@ class User extends MY_Controller
     
     public function index()
     {
-        $this->data['users'] = $this->user->getAll();
+        $this->data['user_map'] = $this->user->get_user_map();
         
         $this->data['subview'] = 'admin/user';
         $this->load->view('admin/layout', $this->data);
@@ -67,6 +67,15 @@ class User extends MY_Controller
         $this->data['groups'] = $this->user->getGroups();
         
         $this->data['subview'] = 'admin/user/new';
+        $this->load->view('admin/layout', $this->data);
+    }
+    
+    public function show($id)
+    {
+        $this->data['user'] = $this->ion_auth->user($id)->row();
+        $this->data['group'] = $this->ion_auth->get_users_groups($id)->row()->description;
+        
+        $this->data['subview'] = 'admin/user/view';
         $this->load->view('admin/layout', $this->data);
     }
 }
