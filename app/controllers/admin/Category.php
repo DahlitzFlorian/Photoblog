@@ -57,9 +57,51 @@ class Category extends MY_Controller
     
     public function edit($id)
     {
-        $this->data['category'] = $this->cat->get_by('id', $id);
+        $category = $this->cat->get_by('id', $id);
+        
+        if($this->input->post('edit_category_submit'))
+        {
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($this->cat->set_validation_rules());
+        
+            if($this->form_validation->run())
+            {
+                $data = [
+                    'name' => $this->input->post('name')
+                ];
+        
+                if($this->cat->update($category->id, $data))
+                    redirect(base_url('admin/category'));
+                else
+                    $this->data['msg'] ='<p>Die Kategorie konnte aus unbekannten Gründen nicht aktualisiert werden.</p>';
+            }
+            else
+                $this->data['validation_errors'] = str_replace('</p>', '<br>', str_replace('<p>', '', validation_errors()));
+        }
+        
+        $this->load->helper('form');
+        
+        $this->data['category'] = $category;
         
         $this->data['subview'] = 'admin/category/edit';
+        $this->load->view('admin/layout', $this->data);
+    }
+    
+    public function delete($id)
+    {
+        if($this->input->post('delete_yes'))
+        {
+            $this->cat->delete($id);
+            redirect(base_url('admin/category'));
+        }
+        else if($this->input->post('delete_no'))
+            redirect(base_url('admin/category'));
+        
+        $this->load->helper('form');
+        
+        $this->data['category'] = $this->cat->get_by('id', $id);
+        
+        $this->data['subview'] = 'admin/category/delete';
         $this->load->view('admin/layout', $this->data);
     }
 }
