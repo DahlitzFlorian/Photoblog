@@ -97,4 +97,14 @@ class User_model extends MY_Model
         
         return $groups;
     }
+    
+    public function get_user_map()
+    {
+        $users = [];
+        foreach ($this->ion_auth->groups()->result() as $group) {
+            $users[$group->description] = $this->ion_auth->users($group->id)->result();
+        }
+    
+        return $users;
+    }
 }
