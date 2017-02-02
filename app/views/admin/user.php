@@ -5,7 +5,7 @@
             <?php foreach($user_map as $group_desc => $users):?>
             <?php if($users != NULL): ?>
             <h2><?php echo $group_desc; ?></h2>
-            <table>
+            <table class="click-table">
                 <thead>
                     <tr>
                         <th>Status</th>

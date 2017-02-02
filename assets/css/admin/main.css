@@ -413,8 +413,6 @@ table tbody {
 
 table tbody tr:hover {
     background-color: white;
-    cursor: pointer;
-    cursor: hand;
 }
 
 table tbody tr td {
@@ -425,5 +423,10 @@ table tbody tr td a {
     text-decoration: none;
     color: black;
     display:block;
+}
+
+.click-table tbody tr:hover {
+    cursor: pointer;
+    cursor: hand;
 }
 
