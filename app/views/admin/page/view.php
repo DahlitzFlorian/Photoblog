@@ -3,7 +3,7 @@
                 <a href="<?php echo base_url('admin/page'); ?>" class="button">Zurück</a>
                 <a href="<?php echo base_url('admin/page/edit/' . $article->id); ?>" class="button">Bearbeiten</a>
             </div>
-            <div class="box">
+            <div class="box-large">
                 <h4 class="bg-lightblue">Artikel Details</h4>
                 <p>
                     ID: <?php echo $article->id; ?><br>
