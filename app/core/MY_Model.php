@@ -45,12 +45,12 @@ class MY_Model extends CI_Model
      */    
     public function add($data)
     {
-        $this->db->insert($this->table, $data);
+        return $this->db->insert($this->table, $data);
     }
     
     public function add_ext($table, $data)
     {
-        $this->db->insert($table, $data);
+        return $this->db->insert($table, $data);
     }
     
     /**
