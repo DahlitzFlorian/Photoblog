@@ -28,3 +28,15 @@
 .bg-red {
     background-color: #FF0000;
 }
+
+/*
+    font color classes
+*/
+
+.red {
+    color: #FF0000;
+}
+
+.green {
+    color: #04B404;
+}
