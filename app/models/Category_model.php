@@ -17,7 +17,16 @@ class Category_model extends MY_Model
     /**
      * validation rules
      */
-    protected $validation_rules = [];
+    protected $validation_rules = [
+        [
+            'field' => 'name',
+            'label' => 'Kategoriename',
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Bitte geben Sie einen Namen für die Kategorie ein'
+            ]
+        ]
+    ];
     
     public function __construct()
     {
