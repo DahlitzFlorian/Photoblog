@@ -63,6 +63,14 @@ class MY_Model extends CI_Model
     }
     
     /**
+     * deleting data
+     */
+    public function delete($id)
+    {
+        return $this->db->delete($this->table, ['id' => $id]);
+    }
+    
+    /**
      * counting data
      */
     public function count($obj)
