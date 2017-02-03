@@ -72,4 +72,37 @@ class Todo extends MY_Controller
         $this->data['subview'] = 'admin/todo/new';
         $this->load->view('admin/layout', $this->data);
     }
+    
+    public function edit($id)
+    {
+        $todo = $this->todo->get_by('id', $id);
+        
+        if($this->input->post('edit_todo_submit'))
+        {
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules($this->todo->set_validation_rules());
+        
+            if($this->form_validation->run())
+            {
+                $data = [
+                    'title' => $this->input->post('title'),
+                    'content' => $this->input->post('content')
+                ];
+        
+                if($this->todo->update($todo->id, $data))
+                    redirect(base_url('admin/todo'));
+                else
+                    $this->data['msg'] ='<p>Der Todo-Eintrag konnte aus unbekannten Gründen nicht aktualisiert werden.</p>';
+            }
+            else
+                $this->data['validation_errors'] = str_replace('</p>', '<br>', str_replace('<p>', '', validation_errors()));
+        }
+        
+        $this->load->helper('form');
+        
+        $this->data['todo'] = $todo;
+        
+        $this->data['subview'] = 'admin/todo/edit';
+        $this->load->view('admin/layout', $this->data);
+    }
 }
