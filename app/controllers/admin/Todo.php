@@ -46,7 +46,7 @@ class Todo extends MY_Controller
                 if($this->todo->add($data))
                 {
                     $user_ids = [];
-                    if($this->input->post('all'))
+                    if($this->input->post('all') !== FALSE)
                     {
                         $users = $this->ion_auth->users()->result();
                         foreach($users as $user)
@@ -55,7 +55,9 @@ class Todo extends MY_Controller
                     else 
                         $user_ids[] = $this->ion_auth->user()->row()->id;
                     
-                    $this->todo->add_rel($user_ids, (int) $this->input->post('dash_link'));
+                    $dash_link = ($this->input->post('dash_link')) !== FALSE ? 1 : 0;
+                    
+                    $this->todo->add_rel($user_ids, $dash_link);
                     redirect(base_url('admin/todo'));
                 }
                 else
