@@ -340,6 +340,10 @@ p {
     line-height: 150%;
 }
 
+.welcome {
+    float: none;
+}
+
 /*
     error-box
 */

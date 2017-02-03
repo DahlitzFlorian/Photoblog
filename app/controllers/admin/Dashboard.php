@@ -15,6 +15,8 @@ class Dashboard extends MY_Controller
         
         if(!$this->ion_auth->logged_in())
             redirect(base_url('admin/login'));
+        
+        $this->load->model('Todo_model', 'todo');
     }
     
     public function index()
@@ -36,6 +38,8 @@ class Dashboard extends MY_Controller
             $this->data['reception'] = $reception[3];
         else 
             $this->data['reception'] = $reception[4];
+        
+        $this->data['todos'] = $this->todo->getDashTodos($this->data['user']->id);
         
         $this->data['subview'] = 'admin/dashboard';
         $this->load->view('admin/layout', $this->data);

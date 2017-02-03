@@ -158,4 +158,22 @@ class Todo_model extends MY_Model
             return $this->db->update($this->table_rel, ['dash_link' => 1]);
         }
     }
+    
+    public function getDashTodos($user_id)
+    {
+        $todos = [];
+        $todo_ids = $this->db->get_where($this->table_rel, [
+            'user_id' => $user_id,
+            'dash_link' => 1
+        ])->result();
+        
+        foreach($todo_ids as $todo_id)
+        {
+            $todo = $this->db->get_where($this->table, ['id' => $todo_id->todo_id])->row();
+            if($todo->archived != 1)
+                $todos[] = $todo;
+        }            
+        
+        return $this->replaceWithRealAuthor($todos);
+    }
 }
