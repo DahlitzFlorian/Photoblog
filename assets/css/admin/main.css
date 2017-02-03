@@ -287,7 +287,9 @@ p {
 */
 
 .box {
-    width: 40%;
+    width: 45%;
+    float: left;
+    margin-right: 2em;
 }
 
 .box h4 {
@@ -299,6 +301,28 @@ p {
     padding: 10px 5px 10px 5px;
     background-color: #D8D8D8;
     line-height: 150%;
+}
+
+.box .details {
+    display: block;
+    padding: 5px 5px 0.5em 5px;
+    background-color: #D8D8D8;
+}
+
+.box .actions {
+    display: block;
+    padding: 5px 5px 0.5em 5px;
+    background-color: #D8D8D8;
+    font-size: 1em;
+}
+
+.box .actions a {
+    text-decoration: none;
+    color: #0174DF;
+}
+
+.box .actions a:visited {
+    color: #0174DF;
 }
 
 .box-large {

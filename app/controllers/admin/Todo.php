@@ -21,7 +21,7 @@ class Todo extends MY_Controller
     
     public function index()
     {
-        $this->data['todos'] = $this->todo->getAll(['date', 'DESC']);
+        $this->data['todos'] = $this->todo->replaceWithRealAuthor($this->todo->getTodos());
         
         $this->data['subview'] = 'admin/todo';
         $this->load->view('admin/layout', $this->data);
