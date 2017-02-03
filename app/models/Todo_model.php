@@ -137,4 +137,25 @@ class Todo_model extends MY_Model
             $this->delete_ext($todo->id);
         }
     }
+    
+    public function dash_lickage($todo_id, $user_id)
+    {
+        $status = $this->db->get_where($this->table_rel, [
+            'user_id' => $user_id,
+            'todo_id' => $todo_id
+        ])->row()->dash_link;
+        
+        if($status == 1)
+        {
+            $this->db->where('todo_id', $todo_id);
+            $this->db->where('user_id', $user_id);
+            return $this->db->update($this->table_rel, ['dash_link' => 0]);
+        }
+        else
+        {
+            $this->db->where('todo_id', $todo_id);
+            $this->db->where('user_id', $user_id);
+            return $this->db->update($this->table_rel, ['dash_link' => 1]);
+        }
+    }
 }

@@ -184,4 +184,10 @@ class Todo extends MY_Controller
         $this->data['subview'] = 'admin/todo/delete_archive';
         $this->load->view('admin/layout', $this->data);
     }
+    
+    public function dash_linkage($id)
+    {        
+        $this->todo->dash_lickage($id, $this->data['user']->id);
+        redirect(base_url('admin/todo'));
+    }
 }
