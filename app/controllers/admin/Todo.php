@@ -152,4 +152,36 @@ class Todo extends MY_Controller
         $this->data['subview'] = 'admin/todo/archive';
         $this->load->view('admin/layout', $this->data);
     }
+    
+    public function show_archive()
+    {
+        $this->data['todos'] = $this->todo->getArchive();
+        
+        $this->data['subview'] = 'admin/todo/show_archive';
+        $this->load->view('admin/layout', $this->data);
+    }
+    
+    public function show($id)
+    {
+        $this->data['todo'] = $this->todo->get_by('id', $id);
+        
+        $this->data['subview'] = 'admin/todo/view';
+        $this->load->view('admin/layout', $this->data);
+    }
+    
+    public function delete_archive()
+    {
+        if($this->input->post('delete_yes'))
+        {
+            $this->todo->delete_archive();
+            redirect(base_url('admin/todo'));
+        }
+        else if($this->input->post('delete_no'))
+            redirect(base_url('admin/todo'));
+        
+        $this->load->helper('form');
+        
+        $this->data['subview'] = 'admin/todo/delete_archive';
+        $this->load->view('admin/layout', $this->data);
+    }
 }

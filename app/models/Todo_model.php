@@ -119,4 +119,22 @@ class Todo_model extends MY_Model
             'archived' => 1
         ]);
     }
+    
+    public function getArchive()
+    {
+        return $this->db->get_where($this->table, [
+            'archived' => 1
+        ])->result();
+    }
+    
+    public function delete_archive()
+    {
+        $todos = $this->db->get_where($this->table, ['archived' => 1])->result();
+        
+        foreach($todos as $todo)
+        {
+            $this->delete($todo->id);
+            $this->delete_ext($todo->id);
+        }
+    }
 }
