@@ -99,4 +99,17 @@ class Todo_model extends MY_Model
     
         return $data;
     }
+    
+    public function delete_ext($todo_id, $user_id = FALSE)
+    {
+        if($user_id !== FALSE)
+            return $this->db->delete($this->table_rel, [
+                'user_id' => $user_id,
+                'todo_id' => $todo_id
+            ]);
+        else 
+            return $this->db->delete($this->table_rel, [
+                'todo_id' => $todo_id
+            ]);
+    }
 }

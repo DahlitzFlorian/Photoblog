@@ -105,4 +105,31 @@ class Todo extends MY_Controller
         $this->data['subview'] = 'admin/todo/edit';
         $this->load->view('admin/layout', $this->data);
     }
+    
+    public function delete($id)
+    {
+        $todo = $this->todo->get_by('id', $id);
+        
+        if($this->input->post('delete_yes'))
+        {
+            if($todo->author == $this->data['user']->id)
+            {
+                $this->todo->delete($id);
+                $this->todo->delete_ext($id);
+            }
+            else 
+                $this->todo->delete_ext($id, $this->data['user']->id);
+            
+            redirect(base_url('admin/todo'));
+        }
+        else if($this->input->post('delete_no'))
+            redirect(base_url('admin/todo'));
+        
+        $this->load->helper('form');
+        
+        $this->data['todo'] = $todo;
+        
+        $this->data['subview'] = 'admin/todo/delete';
+        $this->load->view('admin/layout', $this->data);
+    }
 }
