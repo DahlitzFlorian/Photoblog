@@ -112,4 +112,11 @@ class Todo_model extends MY_Model
                 'todo_id' => $todo_id
             ]);
     }
+    
+    public function archive($id)
+    {
+        return $this->update($id, [
+            'archived' => 1
+        ]);
+    }
 }
