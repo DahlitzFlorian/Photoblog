@@ -334,3 +334,15 @@ form select {
 .fb-share-button {
     margin: 0 0 2em 0;
 }
+/*
+    category table
+*/
+
+table {
+    background-color: rgba(255, 255, 255, 0.075);
+    text-align: center;
+}
+
+table tbody tr:nth-child(2n + 1) {
+    background-color: transparent;
+}
