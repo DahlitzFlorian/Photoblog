@@ -25,7 +25,11 @@
                 }(document, 'script', 'facebook-jssdk'));
             </script>
             <div class="twitter-container"><a href="https://twitter.com/share" class="twitter-share-button" data-size="large" data-text="<?php echo $article->title; ?>" data-lang="en" data-show-count="false">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></div><div class="fb-share-button" data-href="<?php echo base_url('article/show/' . $article->path); ?>" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Teilen</a></div>
-            <p><span class="left">Erstellt von <?php echo $article->author; ?></span><span class="right"><?php echo date('d.m.Y', strtotime($article->date)); ?></span></p>            
+            <?php if(in_array($article->author, $this->config->item('main_authors'))): ?>
+            <p><span class="left">Erstellt von <?php echo $article->author; ?></span><span class="right"><?php echo date('d.m.Y', strtotime($article->date)); ?></span></p>
+            <?php else: ?>
+            <p><span class="left">Gastbeitrag von <?php echo $article->author; ?></span><span class="right"><?php echo date('d.m.Y', strtotime($article->date)); ?></span></p>            
+            <?php endif; ?>
             <?php if($article->tags != 1): ?>
                 <?php if($comments != null): ?>    
                     <div id="comments">

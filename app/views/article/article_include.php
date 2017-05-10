@@ -4,7 +4,11 @@
             <script src='https://www.google.com/recaptcha/api.js'></script>
             <article><?php echo $article->text; ?></article>
             <p><?php if($article->tags != 1 AND $cat != NULL): ?>Kategorie: <?php echo anchor(base_url('category/show/' . $article->tags), $cat); ?><?php endif; ?></p>
+            <?php if(in_array($article->author, $this->config->item('main_authors'))): ?>
             <p><span class="left">Erstellt von <?php echo $article->author; ?></span><span class="right"><?php echo date('d.m.Y', strtotime($article->date)); ?></span></p>
+            <?php else: ?>
+            <p><span class="left">Gastbeitrag von <?php echo $article->author; ?></span><span class="right"><?php echo date('d.m.Y', strtotime($article->date)); ?></span></p>            
+            <?php endif; ?>
             <?php if($article->tags != 1): ?>
                 <?php if($comments != null): ?>    
                     <div id="comments">

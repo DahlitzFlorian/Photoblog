@@ -11,6 +11,7 @@ $config['title'] = "Venture Dahlitz | Fotoblog";
 $config['charset'] = "UTF-8";
 
 $config['name'] = "Christoph Dahlitz";
+$config['main_authors'] = ['Christoph Dahlitz', 'Florian Dahlitz'];
 $config['current_year'] = date("Y");
 
 $config['emails'] = [
