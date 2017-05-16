@@ -5,7 +5,7 @@
             </div>
             <?php foreach($todos as $todo): ?>
             <div class="box">
-                <h4 class="bg-darkblue white"><?php echo $todo->title; ?></h4>                    
+                <h4 class="bg-blue white"><?php echo $todo->title; ?></h4>                    
                 <span class="details">Autor: <?php echo $todo->author; ?></span>
                 <p><?php echo nl2br($todo->content); ?></p>
             </div>
