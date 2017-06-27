@@ -21,11 +21,12 @@ $(function() {
         });
 
     // Disable animations/transitions until everything's loaded.
-        $body.addClass('is-loading');
+    /*    $body.addClass('is-loading');
 
         $window.on('load', function() {
             $body.removeClass('is-loading');
         });
+    */
 
     /* Poptrox.
         $window.on('load', function() {
