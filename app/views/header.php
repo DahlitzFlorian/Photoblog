@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="de">
 <head>
     <meta charset"<?php echo $this->config->item('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $this->config->item('title'); ?></title>
 
     <!-- Other Stylesheets -->
