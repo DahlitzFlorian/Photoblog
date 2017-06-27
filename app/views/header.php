@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </nav>
         <div id="mainmain">
             <header id="header">
-                <span class="avatar"><img src="<?php echo jpg_file_url('avatar'); ?>" alt="<?php echo $this->config->item('name'); ?>" /></span>
+                <span class="avatar"><a href="<?php echo base_url('home'); ?>"><img src="<?php echo jpg_file_url('avatar'); ?>" alt="<?php echo $this->config->item('name'); ?>" /></a></span>
                 <p>
                     Willkommen auf meinem Fotoblog!<br>
                     Hier werde ich regelmäßig neue Bilder hochladen. Enjoy!
