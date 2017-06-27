@@ -8,11 +8,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title><?php echo $this->config->item('title'); ?></title>
 
     <!-- Other Stylesheets -->
-    <link rel="stylesheet" href="<?php echo css_file_url('main'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo css_file_url('main'); ?>" type="text/css" media="screen">
     
     <!-- Own Stylesheets -->
-    <link rel="stylesheet" href="<?php echo css_file_url('extended'); ?>" type="text/css">
-    <link rel="stylesheet" href="<?php echo css_file_url('helper'); ?>" type="text/css">
+    <link rel="stylesheet" href="<?php echo css_file_url('extended'); ?>" type="text/css" media="screen">
+    <link rel="stylesheet" href="<?php echo css_file_url('helper'); ?>" type="text/css" media="screen">
 </head>
 <body>
     <div id="menu-point"><span onclick="openNav()">&#9776; Menu</span></div>

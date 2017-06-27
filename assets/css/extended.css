@@ -37,7 +37,7 @@ p {
 
 #wrapper {
     text-align: center;
-    width: 100% !important;
+    width: auto !important;
 }
 
 /*
@@ -46,7 +46,8 @@ p {
 
 .sidenav {
     height: 100%; 
-    width: 0; 
+    width: 250px;
+    display: none; 
     position: fixed; 
     z-index: 1; 
     top: 0;
@@ -352,4 +353,13 @@ table {
 
 table tbody tr:nth-child(2n + 1) {
     background-color: transparent;
+}
+
+/*
+    responsive
+*/
+@media(max-width: 516px) {
+    .sidenav {
+        width: 100%;
+    }
 }
