@@ -97,6 +97,7 @@ p {
 }
 
 #menu-point {
+    position: fixed;
     text-align: left; 
     font-size:30px;
     cursor: pointer;
