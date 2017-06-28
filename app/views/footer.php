@@ -1,5 +1,5 @@
             <footer id="footer">
-                <p>&copy; <?php echo $this->config->item('current_year');?> <?php echo $this->config->item('name'); ?>. Alle Rechte vorbehalten. <a href="<?php echo base_url('contact'); ?>">Kontakt</a>. <a href="<?php echo base_url('article/show/imprint'); ?>">Impressum</a>. <a href="<?php echo base_url('admin/login'); ?>">Login</a>.</p>
+                <p>&copy; <?php echo $this->config->item('current_year');?> <?php echo $this->config->item('name'); ?>. Alle Rechte vorbehalten. <span id="footer-links"><a href="<?php echo base_url('contact'); ?>">Kontakt.</a> <a href="<?php echo base_url('article/show/imprint'); ?>">Impressum.</a> <a href="<?php echo base_url('admin/login'); ?>">Login.</a></span></p>
             </footer>
         </div>
     </div>

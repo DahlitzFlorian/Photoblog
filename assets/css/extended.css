@@ -358,7 +358,13 @@ table tbody tr:nth-child(2n + 1) {
     responsive
 */
 @media(max-width: 516px) {
-    .sidenav {
-        width: 100%;
+    #footer-links {
+        display: block;
+        margin: 1em;
+    }
+
+    #footer-links a {
+        display: block;
+        width: auto;
     }
 }
